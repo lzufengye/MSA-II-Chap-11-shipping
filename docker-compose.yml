@@ -1,0 +1,17 @@
+version: '3'
+services:
+  shipping-service:
+    build: .
+    ports:
+     - "7074:7074"
+    environment:
+     - RABBITMQ_SERVICE_HOST=127.0.0.1
+     - SC_HOST=sc-host
+  shipping-rabbitmq:
+    image: rabbitmq:3
+    ports:
+     - "5672:5672"
+  sc-host:
+    image: servicecomb/service-center:latest
+    ports:
+     - "30100:30100"
