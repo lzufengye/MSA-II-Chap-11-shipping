@@ -5,13 +5,16 @@ services:
     ports:
      - "7074:7074"
     environment:
-     - RABBITMQ_SERVICE_HOST=127.0.0.1
-     - SC_HOST=sc-host
-  shipping-rabbitmq:
+     - RABBITMQ_SERVICE_HOST=rabbitmq
+     - SC_HOST=servicecenter
+    links:
+      - servicecenter:servicecenter
+      - rabbitmq:rabbitmq
+  rabbitmq:
     image: rabbitmq:3
     ports:
      - "5672:5672"
-  sc-host:
+  servicecenter:
     image: servicecomb/service-center:latest
     ports:
      - "30100:30100"
