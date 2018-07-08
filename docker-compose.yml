@@ -7,13 +7,13 @@ services:
     environment:
      - RABBITMQ_SERVICE_HOST=rabbitmq
      - SC_HOST=servicecenter
-    links:
-      - servicecenter:servicecenter
-      - rabbitmq:rabbitmq
   rabbitmq:
     image: rabbitmq:3
     ports:
+     - "4369:4369"
+     - "5671:5671"
      - "5672:5672"
+     - "25672:25672"
   servicecenter:
     image: servicecomb/service-center:latest
     ports:

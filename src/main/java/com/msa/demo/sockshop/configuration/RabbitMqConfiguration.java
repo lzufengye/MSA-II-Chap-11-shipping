@@ -16,7 +16,7 @@ public class RabbitMqConfiguration {
 
     final static String queueName = "shipping-task";
 
-    @Value("${spring.rabbitmq.host:127.0.0.1}")
+    @Value("${spring.rabbitmq.host}")
     private String host;
 
     @Bean
