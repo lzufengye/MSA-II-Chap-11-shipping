@@ -7,7 +7,7 @@ services:
     environment:
      - RABBITMQ_SERVICE_HOST=rabbitmq
      - SC_HOST=servicecenter
-  shipping-service:
+  queue-master:
     image: queue-master
     ports:
      - "7075:7075"
